@@ -1,0 +1,111 @@
+<!-- Atikah/7-8-2018: Template used for custom landing pages -->
+{% layout 'theme.V2_ewelina' %}
+
+<link href="https://fonts.googleapis.com/css?family=Cormorant+Garamond:700i|EB+Garamond:400,700|Karla" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
+<script src="https://cdn.rawgit.com/stevenmonson/googleReviews/6e8f0d79/google-places.js"></script> 
+<!-- <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyB-xfMIACeZMHwz8uA7xrcLlZ1JpXCZ7-E&signed_in=true&libraries=places"></script> -->
+
+{{ 'google-places.css' | asset_url | stylesheet_tag }}
+
+<style>
+.lp_header {
+	font-family: 'EB Garamond', serif;
+  	text-align: center;
+  	letter-spacing: 1px;
+  	font-size: 70px;	
+  	line-height: 100%;
+}
+
+.lp_header_700 {
+  	font-weight: 700;
+}
+  
+.lp_header_400 {
+  	font-weight: 400;
+  	margin-top: 1.5cm;
+}
+    	
+</style>
+
+{% section 'landing_page_banner' %}
+
+{% if page.title == 'BloomThis Eternity' %}
+	<center><img src="https://cdn.shopify.com/s/files/1/0781/4423/files/bloomthis-eternity-everlasting-rose-red.jpg?17144323290573338252" /></center>
+	<div class="lp_header lp_header_700">eternity</div>
+	{{ pages.eternity.content }}
+{% elsif page.title == 'Proposal Collection' %}
+	<div class="lp_header lp_header_400">Propose with Flowers</div>
+	{{ pages.proposal-collection.content }}
+{% endif %}
+
+{% if page.title == 'BloomThis Eternity' %}
+	{% for product in collections.bloomthis-eternity.products limit:3 %}
+    {% assign grid_item_width = 'large--one-third medium--one-half text-center' %}
+      {% include 'product-grid-item-hover' %}
+    {% endfor %}
+{% elsif page.title == 'Proposal Collection' %}
+	{% for product in collections.proposal-collection.products limit:9 %}
+    {% assign grid_item_width = 'large--one-third medium--one-half text-center' %}
+      {% include 'product-grid-item-hover' %}
+    {% endfor %}
+{% endif %}
+
+{% if page.title == 'BloomThis Eternity' %}
+	{{ pages.bloomthis-eternity-2.content }}
+{% elsif page.title == 'Proposal Collection' %}
+	{{ pages.proposal-packages.content }}
+{% endif %}
+
+{% if page.title == 'BloomThis Eternity' %}
+	{% for product in collections.bloomthis-eternity.products limit:6 %}
+    {% assign grid_item_width = 'large--one-third medium--one-half text-center' %}
+      {% include 'product-grid-item-hover' %}
+    {% endfor %}
+{% endif %}
+
+{% comment %}
+{% if page.title == 'Proposal Collection' %}
+<br /><br /><br />
+		<h1 class="autopilot_title" style="font-weight:400;">Reviews</h1>
+        <h4 class="autopilot_subtitle_sanserif">What Our Customers Say</h4>
+{% endif %}
+
+
+<!-- Google Review Section -->
+{% if page.title == 'Proposal Collection' %}
+	<center><br/>
+	<a class="tc-business-profile-link" href="https://google.com/search?q=BloomThis+%7C+Best+Online+Florist+in+Malaysia,+A-G-02,+Glomac+Damansara,+Jalan+Damansara,,+Bukit+Kiara,+60000+Kuala+Lumpur,+Federal+Territory+of+Kuala+Lumpur,+Malaysia&ludocid=755416637541383983&ibp=gwp;0,7#lrd=0x31cc493900a28f6d:0xa7bc76df212ff2f,1" target="_blank">
+    <img src="https://cdn.shopify.com/s/files/1/0781/4423/t/25/assets/seal-small1.png" /></a>
+	<b>GOOGLE </b>REVIEWS<br/>
+</center>
+<div id="google-reviews"></div>
+
+{% endif %}
+{% endcomment %}
+
+<!-- Press Feature Section -->
+{% if page.title == 'Proposal Collection' %}
+<br /><br />
+		<h1 class="autopilot_title" style="font-weight:400;">Press</h1>
+        <h4 class="autopilot_subtitle_sanserif">We're Making Headlines</h4>
+<br />
+<p align="center">
+  <img src="https://cdn.shopify.com/s/files/1/0781/4423/files/bloomthis-press-prestige.png?6791571826701865296" width="350" height="245" alt="press-prestige" />
+  <img src="https://cdn.shopify.com/s/files/1/0781/4423/files/bloomthis-press-shape-malaysia.png?6791571826701865296" width="350" height="245" alt="press-prestige" />
+  <img src="https://cdn.shopify.com/s/files/1/0781/4423/files/bloomthis-press-timeout-kuala-lumpur.png?6791571826701865296" width="350" height="245" alt="press-prestige" />
+</p>
+{% endif %}
+
+<!--
+<script>
+jQuery(document).ready(function( $ ) {
+   $("#google-reviews").googlePlaces({
+        placeId: 'ChIJbY-iADlJzDERL_8S8m3Hewo' //Find placeID @: https://developers.google.com/places/place-id
+      , render: ['reviews']
+      , min_rating: 5
+      , max_rows:4
+   });
+});
+</script>
+-->

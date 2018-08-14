@@ -1,0 +1,132 @@
+<!-- Atikah/30-5-2018: Template used for autopilot pages -->
+{% layout 'theme.V2_ewelina' %}
+
+<link href="https://fonts.googleapis.com/css?family=Cormorant+Garamond:700i|EB+Garamond|Karla" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
+<script src="https://cdn.rawgit.com/stevenmonson/googleReviews/6e8f0d79/google-places.js"></script> 
+<!-- <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyB-xfMIACeZMHwz8uA7xrcLlZ1JpXCZ7-E&signed_in=true&libraries=places"></script> -->
+
+{{ 'google-places.css' | asset_url | stylesheet_tag }}
+
+<style>
+.autopilot_btn {
+  width:60%;
+  display:block;
+  -webkit-border-radius: 6;
+  -moz-border-radius: 6;
+  border-radius: 6px;
+  font-family: 'Source Sans Pro', sans-serif;
+  color: #ffffff;
+  font-size: 25px;
+  background: #F8A98F;
+  padding: 20px 25px 20px 25px;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: 2px;
+  line-height:90%;
+}
+
+.autopilot_btn:hover {
+  background: #f79777;
+  color: #ffffff;
+  text-decoration: none;
+}
+</style>
+
+<!-- /templates/index.liquid -->
+{% comment %}
+
+  This is the homepage of your site.
+
+  More info on global variables (available on all templates):
+    - http://docs.shopify.com/themes/liquid-variables/global
+{% endcomment %}
+
+{% section 'landing_page_banner' %}
+
+<a id="top"></a>
+
+{% section 'featured_products' %}
+
+{% section 'birthday_anniversary' %}
+
+{% if page_title contains 'BloomThis Flowers -' or page_title == 'Citibank Cybersale 2018' %}
+	{{ pages.autopilot-201806-usp.content }}<br /><br />
+
+<center><a href="#top" id="back-to-top" class="autopilot_btn">Send Flowers Now</a></center>
+<br /><br /><br /><br /><br />
+		{% comment %}<h1 class="autopilot_title">Reviews</h1>
+        <h4 class="autopilot_subtitle_sanserif">What Our Customers Say</h4>{% endcomment %}
+
+{% endif %}
+
+{% comment %}{% section 'trustedcompany' %}{% endcomment %}
+
+{% comment %}
+<!-- Google Review Section -->
+{% if page_title contains 'BloomThis Flowers -' or page_title == 'Citibank Cybersale 2018' %}
+	<center><br/>
+	<a class="tc-business-profile-link" href="https://google.com/search?q=BloomThis+%7C+Best+Online+Florist+in+Malaysia,+A-G-02,+Glomac+Damansara,+Jalan+Damansara,,+Bukit+Kiara,+60000+Kuala+Lumpur,+Federal+Territory+of+Kuala+Lumpur,+Malaysia&ludocid=755416637541383983&ibp=gwp;0,7#lrd=0x31cc493900a28f6d:0xa7bc76df212ff2f,1" target="_blank">
+    <img src="https://cdn.shopify.com/s/files/1/0781/4423/t/25/assets/seal-small1.png" /></a>
+	<b>GOOGLE </b>REVIEWS<br/>
+</center>
+<div id="google-reviews"></div>
+
+{% endif %}
+{% endcomment %}
+
+<!-- Press Feature Section -->
+{% if page_title contains 'BloomThis Flowers -' or page_title == 'Citibank Cybersale 2018' %}
+
+<br />
+		<h1 class="autopilot_title">Press</h1>
+        <h4 class="autopilot_subtitle_sanserif">We're Making Headlines</h4>
+<br /><br />
+<p align="center">
+  <img src="https://cdn.shopify.com/s/files/1/0781/4423/files/bloomthis-press-prestige.png?6791571826701865296" width="350" height="245" alt="press-prestige" />
+  <img src="https://cdn.shopify.com/s/files/1/0781/4423/files/bloomthis-press-shape-malaysia.png?6791571826701865296" width="350" height="245" alt="press-prestige" />
+  <img src="https://cdn.shopify.com/s/files/1/0781/4423/files/bloomthis-press-timeout-kuala-lumpur.png?6791571826701865296" width="350" height="245" alt="press-prestige" />
+</p>
+{% endif %}
+
+
+{% if page_title contains 'BloomThis Flowers -' or page_title == 'Citibank Cybersale 2018' %}
+
+	<br /><br /><br />
+	<center><a href="#top" id="back-to-top-footer" class="autopilot_btn">Send Flowers Now</a></center>
+	<br /><br />
+
+{% endif %}
+
+
+{% comment %}
+{% if page_title == 'BloomThis - UOB Specials' %}
+
+{% else %}
+	{% section 'weekly_subscription'%}
+{% endif %}
+{% endcomment %}
+
+<script>
+  $(document).ready(function(){
+  	$( "#back-to-top,#back-to-top-footer" ).on("click", function(){
+  		$('html, body').animate({
+    		scrollTop: $("#top").offset().top
+			}, 1000);
+	});
+  });
+</script>
+
+<!-- 
+<script>
+jQuery(document).ready(function( $ ) {
+   $("#google-reviews").googlePlaces({
+        placeId: 'ChIJbY-iADlJzDERL_8S8m3Hewo' //Find placeID @: https://developers.google.com/places/place-id
+      , render: ['reviews']
+      , min_rating: 5
+      , max_rows:4
+   });
+});
+</script>
+-->
